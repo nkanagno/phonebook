@@ -2,7 +2,7 @@ const express = require('express')
 
 const app = express()
 const cors = require("cors");
-
+app.use(express.static("dist"));
 app.use(cors());
 app.use(express.json())
 const morgan = require('morgan')
@@ -32,9 +32,7 @@ let persons = [
     { id: "4", name: "Mary Poppendieck", number: "39-23-6423122" }
 ]
 
-app.get('/', (request, response) => {
-    response.send('<h1>Hello world</h1>')
-})
+
 
 app.get('/info', (request, response) => {
     const peopleLen = persons.length
