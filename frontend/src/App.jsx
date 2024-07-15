@@ -82,6 +82,16 @@ const App = () => {
       setNewName('')
       setNewNumber('')
     })
+      .catch((error) => {
+        setMessageType('error')
+        setMessage(error.response.data.error)
+        setTimeout(() => {
+        setMessage(null)
+      }, 3000);
+    
+      setNewName('')
+      setNewNumber('')
+      });
     
     console.log("button clicked")
   }
